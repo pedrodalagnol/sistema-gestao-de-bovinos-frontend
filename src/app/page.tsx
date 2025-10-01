@@ -11,10 +11,10 @@ export default function HomePage() {
           O sistema completo para a gestão do seu gado.
         </p>
         <div className="mt-8 space-x-4">
-          <Link href="/auth/login" className="px-6 py-3 font-semibold text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700">
+          <Link href="/login" className="px-6 py-3 font-semibold text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700">
             Acessar Sistema
           </Link>
-          <Link href="/auth/register" className="px-6 py-3 font-semibold text-green-700 bg-white border border-green-600 rounded-lg shadow-md hover:bg-gray-100">
+          <Link href="/register" className="px-6 py-3 font-semibold text-green-700 bg-white border border-green-600 rounded-lg shadow-md hover:bg-gray-100">
             Criar Conta
           </Link>
         </div>
