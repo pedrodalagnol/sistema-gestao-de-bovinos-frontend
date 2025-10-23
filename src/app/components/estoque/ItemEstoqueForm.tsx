@@ -56,10 +56,9 @@ export default function ItemEstoqueForm({ onClose, onSuccess, itemToEdit }: Item
             }
             onSuccess();
             onClose();
-        } catch (err: unknown) {
+        } catch (err: any) {
             console.error("Erro ao salvar o item:", err);
-                const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
-            setError(message || 'Ocorreu um erro. Verifique os dados e tente novamente.');
+            setError(err.response?.data?.message || 'Ocorreu um erro. Verifique os dados e tente novamente.');
         } finally {
             setIsLoading(false);
         }

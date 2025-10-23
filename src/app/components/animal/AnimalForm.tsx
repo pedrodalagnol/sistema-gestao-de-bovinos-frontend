@@ -48,7 +48,7 @@ export default function AnimalForm({ onClose, onSuccess, animalToEdit }: AnimalF
             }
             onSuccess();
             onClose();
-        } catch (_err) {
+        } catch (err) {
             setError('Falha ao salvar. Verifique se o identificador já existe.');
         } finally {
             setIsSubmitting(false);

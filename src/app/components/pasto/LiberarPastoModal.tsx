@@ -23,10 +23,9 @@ export default function LiberarPastoModal({ onClose, onSuccess, pasto }: Liberar
             await liberarPasto(pasto.id, novoStatus);
             onSuccess();
             onClose();
-        } catch (err: unknown) {
-            console.error('Erro ao liberar pasto:', err);
-            const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
-            setError(message || 'Ocorreu um erro ao liberar o pasto.');
+        } catch (err: any) {
+            console.error("Erro ao liberar pasto:", err);
+            setError(err.response?.data?.message || 'Ocorreu um erro ao liberar o pasto.');
         } finally {
             setIsLoading(false);
         }

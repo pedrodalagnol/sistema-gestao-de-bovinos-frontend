@@ -45,10 +45,9 @@ export default function MovimentacaoEstoqueForm({ onClose, onSuccess, item, type
             }
             onSuccess();
             onClose();
-        } catch (err: unknown) {
+        } catch (err: any) {
             console.error(`Erro ao registrar ${type}:`, err);
-            const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
-            setError(message || 'Ocorreu um erro. Tente novamente.');
+            setError(err.response?.data?.message || 'Ocorreu um erro. Tente novamente.');
         } finally {
             setIsLoading(false);
         }

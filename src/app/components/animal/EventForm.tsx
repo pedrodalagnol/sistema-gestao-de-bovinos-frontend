@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import api from '@/app/services/api';
-import { ChevronDown } from 'lucide-react';
+import { Plus, ChevronDown } from 'lucide-react';
 
 interface EventFormProps {
     animalId: string;

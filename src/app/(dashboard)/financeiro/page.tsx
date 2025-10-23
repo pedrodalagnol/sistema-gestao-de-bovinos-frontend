@@ -36,7 +36,7 @@ export default function FinanceiroPage() {
                 setLancamentos(sortedData);
                 setError(null);
             })
-            .catch((err: unknown) => {
+            .catch(err => {
                 console.error("Erro ao buscar lançamentos:", err);
                 setError("Falha ao carregar os lançamentos. Tente novamente mais tarde.");
             })
@@ -52,12 +52,9 @@ export default function FinanceiroPage() {
             try {
                 await deletarLancamento(lancamentoId);
                 setLancamentos(prev => prev.filter(item => item.id !== lancamentoId));
-            } catch (error: unknown) {
+            } catch (error: any) {
                 console.error("Falha ao excluir o lançamento:", error);
-                const message = typeof error === 'object' && error !== null && 'response' in error
-                    ? (error as { response?: { data?: { message?: string } } }).response?.data?.message
-                    : undefined;
-                alert(message || 'Não foi possível excluir o lançamento.');
+                alert(error.response?.data?.message || 'Não foi possível excluir o lançamento.');
             }
         }
     };

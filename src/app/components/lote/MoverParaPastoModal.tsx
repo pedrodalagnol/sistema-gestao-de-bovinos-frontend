@@ -48,10 +48,9 @@ export default function MoverParaPastoModal({ onClose, onSuccess, lote }: MoverP
             await alocarLote(parseInt(selectedPastoId, 10), lote.id);
             onSuccess();
             onClose();
-        } catch (err: unknown) {
+        } catch (err: any) {
             console.error("Erro ao mover lote para pasto:", err);
-            const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
-            setError(message || 'Ocorreu um erro ao mover o lote.');
+            setError(err.response?.data?.message || 'Ocorreu um erro ao mover o lote.');
         } finally {
             setIsLoading(false);
         }

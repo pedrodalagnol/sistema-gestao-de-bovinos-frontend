@@ -1,6 +1,5 @@
 
 import { HistoricoEvento } from '@/app/types/animal';
-import type { ReactNode } from 'react';
 import { 
     Scale, Syringe, ArrowRightLeft, ShieldCheck, Pill, TestTube2, 
     ClipboardCheck, HeartHandshake, Tag, LogIn, LogOut, DollarSign, Skull 
@@ -10,7 +9,7 @@ interface EventHistoryProps {
     historico: HistoricoEvento[];
 }
 
-const eventIcons: Record<string, ReactNode> = {
+const eventIcons: { [key: string]: JSX.Element } = {
     PESAGEM: <Scale className="w-5 h-5 mr-3 text-blue-500" />,
     VACINACAO: <ShieldCheck className="w-5 h-5 mr-3 text-purple-500" />,
     VERMIFUGACAO: <Pill className="w-5 h-5 mr-3 text-orange-500" />,

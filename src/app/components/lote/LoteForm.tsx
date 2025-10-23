@@ -44,7 +44,7 @@ export default function LoteForm({ onClose, onSuccess, loteToEdit }: LoteFormPro
             }
             onSuccess();
             onClose();
-        } catch (_err) {
+        } catch (err) {
             setError('Falha ao salvar o lote. Verifique os dados.');
         } finally {
             setIsSubmitting(false);

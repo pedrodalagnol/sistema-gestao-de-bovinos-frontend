@@ -19,7 +19,7 @@ export default function RegisterPage() {
         setError(null);
         try {
             await register(formData);
-        } catch (_err) {
+        } catch (err) {
             setError('Falha ao registrar. Verifique os dados e tente novamente.');
         }
     };

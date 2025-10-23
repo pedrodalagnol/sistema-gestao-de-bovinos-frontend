@@ -4,11 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/app/contexts/AuthContext';
 import { LoginRequestDTO } from '@/app/types/auth';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
     const [formData, setFormData] = useState<LoginRequestDTO>({ email: '', senha: '' });
     const [error, setError] = useState<string | null>(null);
     const { login } = useAuth();
+    const router = useRouter();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

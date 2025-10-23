@@ -42,12 +42,9 @@ export default function EstoquePage() {
             try {
                 await deletarItemEstoque(itemId);
                 setItens(prev => prev.filter(item => item.id !== itemId));
-            } catch (error: unknown) {
+            } catch (error: any) {
                 console.error("Falha ao excluir o item:", error);
-                const message = typeof error === 'object' && error !== null && 'response' in error
-                    ? (error as { response?: { data?: { message?: string } } }).response?.data?.message
-                    : undefined;
-                alert(message || 'Não foi possível excluir o item.');
+                alert(error.response?.data?.message || 'Não foi possível excluir o item.');
             }
         }
     };

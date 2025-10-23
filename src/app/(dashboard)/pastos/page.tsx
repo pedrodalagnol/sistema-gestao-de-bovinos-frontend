@@ -26,7 +26,7 @@ export default function PastosPage() {
                 setPastos(data);
                 setError(null);
             })
-            .catch((err: unknown) => {
+            .catch(err => {
                 console.error("Erro ao buscar pastos:", err);
                 setError("Falha ao carregar os pastos. Tente novamente mais tarde.");
             })
@@ -42,12 +42,9 @@ export default function PastosPage() {
             try {
                 await deletarPasto(pastoId);
                 setPastos(prev => prev.filter(pasto => pasto.id !== pastoId));
-            } catch (error: unknown) {
+            } catch (error: any) {
                 console.error("Falha ao excluir o pasto:", error);
-                const message = typeof error === 'object' && error !== null && 'response' in error
-                    ? (error as { response?: { data?: { message?: string } } }).response?.data?.message
-                    : undefined;
-                alert(message || 'Não foi possível excluir o pasto. Verifique se ele não está em uso.');
+                alert(error.response?.data?.message || 'Não foi possível excluir o pasto. Verifique se ele não está em uso.');
             }
         }
     };
