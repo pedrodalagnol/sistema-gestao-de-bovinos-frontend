@@ -46,7 +46,6 @@ export default function LoteForm({ onClose, onSuccess, loteToEdit }: LoteFormPro
             onClose();
         } catch (err) {
             setError('Falha ao salvar o lote. Verifique os dados.');
-            console.error(err);
         } finally {
             setIsSubmitting(false);
         }
@@ -61,11 +60,11 @@ export default function LoteForm({ onClose, onSuccess, loteToEdit }: LoteFormPro
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="nome" className="block mb-1 font-medium text-gray-700">Nome do Lote</label>
-                        <input type="text" name="nome" id="nome" value={formData.nome} onChange={handleChange} required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                        <input type="text" name="nome" id="nome" value={formData.nome} onChange={handleChange} required className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                     </div>
                     <div>
                         <label htmlFor="descricao" className="block mb-1 font-medium text-gray-700">Descrição</label>
-                        <textarea name="descricao" id="descricao" value={formData.descricao} onChange={handleChange} rows={3} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        <textarea name="descricao" id="descricao" value={formData.descricao} onChange={handleChange} rows={3} className="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea>
                     </div>
                     
                     {error && <p className="text-sm text-center text-red-600">{error}</p>}

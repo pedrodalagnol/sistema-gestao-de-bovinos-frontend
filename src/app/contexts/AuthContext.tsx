@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setAuthToken(token);
         const decodedUser = decodeToken(token);
         setUser(decodedUser);
-        router.push('/');
+        router.push('/dashboard');
     };
 
     const register = async (data: CadastroRequestDTO) => {

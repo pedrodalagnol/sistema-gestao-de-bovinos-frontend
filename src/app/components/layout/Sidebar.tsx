@@ -9,7 +9,9 @@ const navLinks = [
   { name: 'Rebanho', href: '/animais', icon: List },
   { name: 'Lotes', href: '/lotes', icon: Package },
   { name: 'Pastos', href: '/pastos', icon: BarChart2 },
+  { name: 'Estoque', href: '/estoque', icon: Package },
   { name: 'Financeiro', href: '/financeiro', icon: DollarSign },
+  { name: 'Relatórios', href: '/relatorios', icon: BarChart2 },
 ];
 
 export default function Sidebar() {
