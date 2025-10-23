@@ -46,9 +46,10 @@ export default function PastoForm({ onClose, onSuccess, pastoToEdit }: PastoForm
             }
             onSuccess(); // Recarrega a lista na página principal
             onClose();   // Fecha o modal
-        } catch (err: any) {
-            console.error("Erro ao salvar o pasto:", err);
-            setError(err.response?.data?.message || 'Ocorreu um erro. Verifique os dados e tente novamente.');
+        } catch (err: unknown) {
+            console.error('Erro ao salvar pasto:', err);
+            const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
+            setError(message || 'Ocorreu um erro ao salvar o pasto.');
         } finally {
             setIsLoading(false);
         }

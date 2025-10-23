@@ -56,9 +56,10 @@ export default function AlocarLoteModal({ onClose, onSuccess, pasto }: AlocarLot
             await alocarLote(pasto.id, parseInt(selectedLoteId, 10));
             onSuccess();
             onClose();
-        } catch (err: any) {
-            console.error("Erro ao alocar lote:", err);
-            setError(err.response?.data?.message || 'Ocorreu um erro ao alocar o lote.');
+        } catch (err: unknown) {
+            console.error('Erro ao alocar lote:', err);
+            const message = typeof err === 'object' && err !== null && 'response' in err ? (err as { response?: { data?: { message?: string } } }).response?.data?.message : undefined;
+            setError(message || 'Ocorreu um erro ao alocar o lote.');
         } finally {
             setIsLoading(false);
         }
