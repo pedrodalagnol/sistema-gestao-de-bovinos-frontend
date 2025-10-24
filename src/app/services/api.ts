@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'sistema-gestao-de-bovinos.us-east-2.elasticbeanstalk.com',
 });
 
 // Esta função será usada pelo AuthContext para configurar o token nos headers
