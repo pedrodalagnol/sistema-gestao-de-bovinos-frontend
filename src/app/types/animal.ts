@@ -23,14 +23,17 @@ export interface AnimalRequestDTO {
     dataNascimento: string;
 }
 
+// Para o histórico de eventos
+export interface HistoricoEvento {
+    id: number;
+    tipoEvento: string;
+    dataEvento: string;
+    valor: number | null;
+    observacoes: string | null;
+}                                                                                                  
+
 // Para a página de detalhes que faremos no futuro
 export interface AnimalDetails extends Animal {
     gmd: number;
-    historico: {
-        id: number;
-        tipoEvento: string;
-        dataEvento: string;
-        valor: number;
-        observacoes: string;
-    }[];
+    historico: HistoricoEvento[];
 }
