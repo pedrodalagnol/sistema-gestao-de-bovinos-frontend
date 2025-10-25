@@ -10,7 +10,7 @@ interface EventHistoryProps {
     historico: HistoricoEvento[];
 }
 
-const eventIcons: { [key: string]: JSX.Element } = {
+const eventIcons: { [key: string]: React.ReactNode } = {
     PESAGEM: <Scale className="w-5 h-5 mr-3 text-blue-500" />,
     VACINACAO: <ShieldCheck className="w-5 h-5 mr-3 text-purple-500" />,
     VERMIFUGACAO: <Pill className="w-5 h-5 mr-3 text-orange-500" />,
