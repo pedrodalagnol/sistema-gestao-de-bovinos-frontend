@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    baseURL: 'http://sgb-env-2.eba-wz3tucx3.sa-east-1.elasticbeanstalk.com',
 });
 
 // Esta função será usada pelo AuthContext para configurar o token nos headers
