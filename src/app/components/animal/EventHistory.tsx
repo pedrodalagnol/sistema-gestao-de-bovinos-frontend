@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { HistoricoEvento } from '@/app/types/animal';
 import { 
     Scale, Syringe, ArrowRightLeft, ShieldCheck, Pill, TestTube2, 
