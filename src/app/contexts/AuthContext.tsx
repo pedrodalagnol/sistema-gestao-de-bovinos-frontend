@@ -82,12 +82,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const register = async (data: CadastroRequestDTO) => {
-        const response = await api.post<AuthResponseDTO>('/auth/registrar', data);
+        const response = await api.post<AuthResponseDTO>('/api/auth/registrar', data);
         handleAuth(response.data.token);
     };
 
     const login = async (data: LoginRequestDTO) => {
-        const response = await api.post<AuthResponseDTO>('/auth/login', data);
+        const response = await api.post<AuthResponseDTO>('/api/auth/login', data);
         handleAuth(response.data.token);
     };
 
